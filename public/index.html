@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zombie Outpost</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <div id="hud">
+    <div id="statusPanel">
+      <span id="healthLabel">Health: 100</span>
+      <span id="ammoLabel">Ammo: 20</span>
+      <span id="scoreLabel">Score: 0</span>
+      <span id="weaponLabel">Weapon: Pistol</span>
+      <span id="woodLabel">Wood: 0</span>
+      <span id="metalLabel">Metal: 0</span>
+      <span id="inventoryLabel">Barricades: 1</span>
+    </div>
+
+    <div id="messageBox">Explore the town, loot buildings, craft upgrades</div>
+  </div>
+
+  <div id="controls">
+    <div class="pad leftPad">
+      <button data-key="up">↑</button>
+      <button data-key="left">←</button>
+      <button data-key="down">↓</button>
+      <button data-key="right">→</button>
+    </div>
+
+    <div class="pad rightPad">
+      <button data-key="shoot">FIRE</button>
+      <button data-key="enter">ENTER</button>
+      <button data-key="craft">CRAFT</button>
+      <button data-key="swap">SWAP</button>
+    </div>
+  </div>
+
+  <script src="./game.js"></script>
+</body>
+</html>
