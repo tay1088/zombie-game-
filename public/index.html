@@ -2,40 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#070f11" />
   <title>Zombie Outpost</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <canvas id="gameCanvas"></canvas>
+  <canvas id="gameCanvas" aria-label="Zombie Outpost game area"></canvas>
 
   <div id="hud">
-    <div id="statusPanel">
-      <span id="healthLabel">Health: 100</span>
-      <span id="ammoLabel">Ammo: 20</span>
-      <span id="scoreLabel">Score: 0</span>
-      <span id="weaponLabel">Weapon: Pistol</span>
-      <span id="woodLabel">Wood: 0</span>
-      <span id="metalLabel">Metal: 0</span>
-      <span id="inventoryLabel">Barricades: 1</span>
-    </div>
+    <section id="statusPanel" aria-live="polite">
+      <div class="vitals">
+        <div class="healthRow">
+          <span class="label">Health</span>
+          <span id="healthLabel" class="healthValue">100</span>
+        </div>
+        <div class="bar"><i id="healthBar"></i></div>
+        <div class="loadout">
+          <span id="weaponLabel" class="weapon">Pistol</span>
+          <span class="ammoWrap"><span id="ammoLabel">20</span><em>ammo</em></span>
+        </div>
+      </div>
+      <div class="resources">
+        <span class="chip"><b id="scoreLabel">0</b><em>score</em></span>
+        <span class="chip"><b id="woodLabel">0</b><em>wood</em></span>
+        <span class="chip"><b id="metalLabel">0</b><em>metal</em></span>
+        <span class="chip"><b id="inventoryLabel">1</b><em>barricade</em></span>
+      </div>
+    </section>
 
     <div id="messageBox">Explore the town, loot buildings, craft upgrades</div>
+    <div id="helpPanel">WASD move · mouse aim · space fire · E loot · C craft · Q swap</div>
   </div>
 
   <div id="controls">
     <div class="pad leftPad">
-      <button data-key="up">↑</button>
-      <button data-key="left">←</button>
-      <button data-key="down">↓</button>
-      <button data-key="right">→</button>
+      <button data-key="up" aria-label="Move up">↑</button>
+      <button data-key="left" aria-label="Move left">←</button>
+      <button data-key="down" aria-label="Move down">↓</button>
+      <button data-key="right" aria-label="Move right">→</button>
     </div>
 
     <div class="pad rightPad">
-      <button data-key="shoot">FIRE</button>
-      <button data-key="enter">ENTER</button>
-      <button data-key="craft">CRAFT</button>
-      <button data-key="swap">SWAP</button>
+      <button data-key="shoot" class="fire" aria-label="Fire">FIRE</button>
+      <button data-key="enter" aria-label="Loot building">LOOT</button>
+      <button data-key="craft" aria-label="Craft barricade">CRAFT</button>
+      <button data-key="swap" aria-label="Swap weapon">SWAP</button>
+    </div>
+  </div>
+
+  <div id="loading" class="overlay">
+    <div class="loadingCard">
+      <h1>Zombie Outpost</h1>
+      <p id="loadingText">Connecting to the outpost…</p>
+      <div class="loader"><i></i></div>
     </div>
   </div>
 
